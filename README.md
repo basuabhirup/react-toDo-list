@@ -1,6 +1,6 @@
 # To-Do List with React
 
-CodeSandbox Live Site URL: [https://codesandbox.io/s/github/basuabhirup/react-toDo-list](https://codesandbox.io/s/github/basuabhirup/react-toDo-list)
+### CodeSandbox Live Site URL: [https://codesandbox.io/s/github/basuabhirup/react-toDo-list](https://codesandbox.io/s/github/basuabhirup/react-toDo-list)
 
 <div align="center">
   <img src="https://i.ibb.co/cCNS2H5/image.png" alt="Project Screenshot">
@@ -11,7 +11,7 @@ CodeSandbox Live Site URL: [https://codesandbox.io/s/github/basuabhirup/react-to
 - To create a functional To-Do List app from the starting files.
 - When new text is written into the input, its state should be saved.
 - When the add button is pressed, the current data in the input should be added to an array.
-- The <ul> should display all the array items as <li>s
+- The `<ul>` should display all the array items as `<li>`s.
 
 ## Steps I have followed:
 
@@ -50,5 +50,5 @@ function handleClick(e) {
 3. Used `map()` method on the `itemsArray` to render all the items as `<li>`s in the list:
 
 ```javascript
-itemsArray.map((item) => <li>{item}</li>);
+{itemsArray.map((item) => <li>{item}</li>)}
 ```
