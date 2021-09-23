@@ -1,17 +1,13 @@
 import React, { useState } from "react";
+import Input from "./Input";
+import Item from "./Item";
 
 function App() {
   // console.clear()
-  const [item, setItem] = useState("");
   const [itemsArray, setItemsArray] = useState([]);
 
-  function handleChange(e) {
-    setItem(e.target.value);
-  }
-
-  function handleClick() {
+  function addItem(item) {
     setItemsArray([...itemsArray, item]);
-    setItem("");
   }
 
   return (
@@ -19,16 +15,11 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input onChange={handleChange} type="text" value={item} />
-        <button onClick={handleClick}>
-          <span>Add</span>
-        </button>
-      </div>
+      <Input onClick={addItem} />
       <div>
         <ul>
           {itemsArray.map((item) => (
-            <li>{item}</li>
+            <Item itemName={item} />
           ))}
         </ul>
       </div>
