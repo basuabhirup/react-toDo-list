@@ -62,7 +62,7 @@ function addItem() {
 
 4. Created two new components - `Input` and `Item` inside `App` for reusability, modularity and a better readability.
 
-5. Modified the code to keep the app functional by managing states and props of all the components.
+5. Modified the code to keep the app functional by managing states and props of all the components:
 
 ```javascript
 // Inside 'components/App.jsx'
@@ -107,5 +107,35 @@ function Input(props) {
 // Inside 'components/Item.jsx'
 function Item(props) {
   return <li>{props.itemName}</li>;
+}
+```
+
+<br />
+
+6. Created a new function `deleteItem` inside `App` component and passed the same to its child `Item` component. Also, passed the correspoding index value to the child component:
+
+```javascript
+function deleteItem(id) {
+  setItemsArray((prevValue) => {
+    return prevValue.filter((item, index) => {
+      return index !== id;
+    });
+  });
+}
+
+<ul>
+  {itemsArray.map((item, index) => (
+    <Item key={index} id={index} itemName={item} onClick={deleteItem} />
+  ))}
+</ul>;
+```
+
+<br />
+
+7. Modified the code inside the `Item` component, so that after receiving props it can use them properly to delete an item that gets clicked.
+
+```javascript
+function Item(props) {
+  return <li onClick={() => props.onClick(props.id)}>{props.itemName}</li>;
 }
 ```

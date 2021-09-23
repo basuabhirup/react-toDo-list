@@ -1,7 +1,7 @@
 import React from "react";
 
 function Item(props) {
-  return <li>{props.itemName}</li>;
+  return <li onClick={() => props.onClick(props.id)}>{props.itemName}</li>;
 }
 
 export default Item;

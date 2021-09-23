@@ -10,6 +10,14 @@ function App() {
     setItemsArray([...itemsArray, item]);
   }
 
+  function deleteItem(id) {
+    setItemsArray((prevValue) => {
+      return prevValue.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -18,8 +26,8 @@ function App() {
       <Input onClick={addItem} />
       <div>
         <ul>
-          {itemsArray.map((item) => (
-            <Item itemName={item} />
+          {itemsArray.map((item, index) => (
+            <Item key={index} id={index} itemName={item} onClick={deleteItem} />
           ))}
         </ul>
       </div>
